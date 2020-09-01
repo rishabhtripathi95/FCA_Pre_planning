@@ -4,38 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
-    <title>Rishabh Restraunt</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css">
     <script>
-        $(document).on('click', '.dropdown-menu', function (e) {
-            e.stopPropagation();
-        });
-
-        if ($(window).width() < 992) {
-            $('.dropdown-menu a').click(function (e) {
-                e.preventDefault();
-                if ($(this).next('.submenu').length) {
-                    $(this).next('.submenu').toggle();
-                }
-                $('.dropdown').on('hide.bs.dropdown', function () {
-                    $(this).find('.submenu').hide();
-                })
-            });
+    function terms_changed(termsCheckBox){
+        if(termsCheckBox.checked){
+            document.getElementById("submit_button").disabled = false;
+        
+        } else{
+            
+            document.getElementById("submit_button").disabled = true;
         }
-
-    </script>
-
-
-
-
+    }
+    
+</script>
+   
 </head>
 
 
 <body>
-
+    
     <header class="container-fluid">
         <div class="container">
             <div class="row h-100">
@@ -81,41 +72,41 @@
                 <div class="row">
                     <div class="cols mx-auto">
                         <div class="form-group">
-                            <form>
+                            <form  id="login-form" action=""   method="post">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="inputFirstName">First Name</label>
-                                        <input type="text" class="form-control" id="inputFirstName" required>
+                                        <label for="FirstName" >First Name</label><span class="required">*</span>
+                                        <input type="text" class="form-control" id="FirstName" required>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="inputPassword4">Last Name</label>
-                                        <input type="text" class="form-control" id="inputlastName" required>
+                                        <label for="LastName" >Last Name</label><span class="required">*</span>
+                                        <input type="text" class="form-control" id="LastName" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputAddress">Address</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"
+                                    <label for="Address">Address</label><span class="required">*</span>
+                                    <input type="text" class="form-control" id="Address" placeholder="1234 Main St"
                                         required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputAddress2">Address 2</label>
-                                    <input type="text" class="form-control" id="inputAddress2"
+                                    <label for="Address2">Address 2</label>
+                                    <input type="text" class="form-control" id="Address2"
                                         placeholder="Apartment, studio, or floor">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputNumber">Mobile-No.</label>
-                                    <input type="text" inputmode="numeric" pattern="[0-9]*" minlength="10"
-                                        maxlenght="10" class="form-control" id="inputNumber"
+                                    <label for="Number">Mobile-No.</label><span class="required">*</span>
+                                    <input type="text" inputmode="numeric" pattern="[0-9]*" min="10"
+                                        max="10" class="form-control" id="Number"
                                         placeholder="+91-0123456789">
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="inputCity">City</label>
-                                        <input type="text" class="form-control" id="inputCity" required>
+                                        <label for="City" >City</label><span class="required">*</span>
+                                        <input type="text" class="form-control" id="City" required>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label for="inputState">State</label>
-                                        <select id="inputState" class="form-control">
+                                        <label for="State">State</label><span class="required">*</span>
+                                        <select id="State" class="form-control">
                                             <option selected>Choose...</option>
                                             <option>Uttar-Pradesh</option>
                                             <option>hyderabad</option>
@@ -123,21 +114,22 @@
                                         </select>
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <label for="inputZip">Zip</label>
+                                        <label for="Zip">Zip</label><span class="required">*</span>
                                         <input type="text" inputmode="numeric" pattern="[0-9]*" class="form-control"
-                                            id="inputZip" required>
+                                            id="Zip" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="gridCheck" required>
+                                        <input class="form-check-input" type="checkbox" onclick="terms_changed(this)" id="gridCheck"  required><span class="required">*</span>
                                         <label class="form-check-label" for="gridCheck">
                                             Check me out
                                         </label>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#myModal">Sign in</button>
+                                <button type="submit" class="btn btn-primary"  onclick="myFunction()" id="submit_button" disabled>Sign in</button>
+                        
+                            <!--Modal code is not used yet , working on it-->
                                 <div class="modal" id="myModal" tabindex="-1" role="dialog">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -160,14 +152,14 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!---->
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
+        
     </main>
 
     <footer class="page-footer font-small pt-4">
@@ -214,8 +206,7 @@
 
 
 
-
-
+      
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -225,7 +216,19 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+         
+         <script>
+            function myFunction() {
+              var txt;
+              if (confirm("are you confirmed !")) {
+                alert("You're signed-in!"); 
+              } else {
+                txt = "You pressed Cancel!";
+              }
+              document.getElementById("#login-form").innerHTML = txt;
+            }
+             </script>
+        
 </body>
-
 
 </html>
