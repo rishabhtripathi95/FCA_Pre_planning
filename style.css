@@ -6,12 +6,11 @@ header{
     background-color: indianred;
 
 }
-.box1{
 
-    background-color:  rgb(128, 77, 0);
-    height: 100px;
-    width: 90px 20px;
-    padding:10px;
+form label.required:after
+{
+    color: red;
+    content: " *";
 }
 footer{
 
