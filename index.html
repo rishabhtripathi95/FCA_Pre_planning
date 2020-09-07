@@ -14,12 +14,29 @@
             if (form.value == '') {
                 alert("Error:fields Should be filled!");
             }
-    
+
             else {
-                
+
                 var r = confirm("are you confirmed to sign-in ?");
                 if (r == true) {
                     alert("You're signed-in!");
+                } else {
+                    alert("You're sign-in is cancelled");
+                }
+
+            }
+        }
+        function checkModal(form) {
+            // validation fails if the input is blank
+            if (form.value == '') {
+                alert("Error:fields Should be filled!");
+            }
+
+            else {
+
+                var r = confirm("are you confirmed your details ?");
+                if (r == true) {
+                    alert("thank you! our representative will call you within 24 hrs!");
                 } else {
                     alert("You're sign-in is cancelled");
                 }
@@ -32,16 +49,7 @@
 
 
 
-
-
-
-
-
-
-
-
 </head>
-
 
 <body>
 
@@ -79,6 +87,77 @@
                 </li>
                 <li class="nav-item"> <a class="nav-link" href="#"> contact-us </a> </li>
                 <li class="nav-item"> <a class="nav-link" href="#"> Feedback </a></li>
+                <li class="nav-item"> <a class="nav-link" href="./info.html" data-target="#myModal" data-toggle="modal">
+                        more information </a></li>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="myModal">We will connect with you !</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!--modal-body-->
+                                <!DOCTYPE html>
+                                <html >
+
+                                <head>
+                                    <meta charset="utf-8">
+                                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                                    <title></title>
+                                    <meta name="description" content="">
+                                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                                </head>
+                                <body>
+                                    <div class="container" id="contact_us">
+                                        <form id="contact" onsubmit="return checkModal(this)">
+                                            <h3>For more information</h3>
+                                            <h4>Contact-us</h4>
+                                            <fieldset>
+                                                <input placeholder="Your name" type="text" tabindex="1" required
+                                                    autofocus>
+                                            </fieldset>
+                                            <fieldset>
+                                                <input placeholder="Your Email Address" type="email" tabindex="2"
+                                                    required>
+                                            </fieldset>
+                                            <fieldset>
+                                                <input placeholder="Your Phone Number" type="tel"
+                                                    tabindex="3" required>
+                                            </fieldset>
+                                            <fieldset>
+                                                <input placeholder="Your Web Site (optional)" type="url" tabindex="4"
+                                                    >
+                                            </fieldset>
+                                            <fieldset>
+                                                <textarea placeholder="Type your message here...." tabindex="5"
+                                                    ></textarea>
+                                            </fieldset>
+                                            <fieldset>
+                                                <button name="submit" type="submit" id="contact-submit"
+                                                >Submit</button>
+                                                    
+                                            </fieldset>
+                                            <p class="copyright">Designed by <a href="#"
+                                                    target="_blank" title="TCS">TCS</a></p>
+                                        </form>
+                                    </div>
+                                    </body>
+                                </html>
+                                <!--modal-body-ends-->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                 </ul>
 
             </div>
@@ -90,7 +169,7 @@
                 <div class="row">
                     <div class="cols mx-auto">
                         <div class="form-group">
-                            <form name="form" id="login-form"  onsubmit="return checkForm(this);" >
+                            <form name="form" id="login-form" onsubmit="return checkForm(this);">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label class="control-label required" for="FirstName">First Name</label>
@@ -115,7 +194,8 @@
                                 <div class="form-group">
                                     <label class="control-label required" for="Number">Mobile-No.</label>
                                     <input type="text" inputmode="numeric" pattern="[0-9]*" min="10" max="10"
-                                        class="form-control" name="Number" id="Number" placeholder="+91-0123456789" required>
+                                        class="form-control" name="Number" id="Number" placeholder="+91-0123456789"
+                                        required>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
@@ -147,8 +227,7 @@
                                     </div>
                                 </div>
 
-                                <button type="submit" class="btn btn-primary" 
-                                    id="submit_button">Sign in</button>
+                                <button type="submit" class="btn btn-primary" id="submit_button">Sign in</button>
                             </form>
                         </div>
                     </div>
@@ -213,19 +292,6 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 
-    <!-- <script>
-            function myFunction() {
-              var txt;
-              
-              if (confirm("are you confirmed !")) {
-                alert("You're signed-in!"); 
-                txt="thank you for signing-in";
-              } else {
-                txt = "You pressed Cancel!";
-              }
-              document.getElementById("login-form").innerHTML = txt;
-            }
-             </script> -->
 
 </body>
 
